@@ -2,31 +2,15 @@ package com.rohith.leetcode75.arrayAndString;
 
 public class IncreasingTripletSubsequence {
     public boolean increasingTriplet(int[] nums) {
-        int ind = 1,i=1,maxtillNow=0;
-        // for(int i=0;i<nums.length-1;i++){
-        if(nums.length-1 <3) {
-        	return false;
-        }
-        if(nums[0]<nums[1]) {
-        	ind++;
-            maxtillNow = nums[1];
-        }
-        while(i<nums.length-1 && ind<3){
-            if(nums[i-1] < nums[i]){
-                ind++;
-                maxtillNow = nums[i];
-            }
 
-            i++;
+        int firstMin=Integer.MAX_VALUE, secMin=Integer.MAX_VALUE;
+        for(int i: nums){
+            if(i<=firstMin) firstMin = i;
+            else if(i<=secMin) secMin = i;
+            else return true;
         }
-        
-        if(ind<3 && maxtillNow < nums[nums.length-1] ){
-            ind++;
-        }
-
-        return ind>=3;
+        return false;
     }
-
 
     public static void main(String[] args) {
     	IncreasingTripletSubsequence solution = new IncreasingTripletSubsequence();
