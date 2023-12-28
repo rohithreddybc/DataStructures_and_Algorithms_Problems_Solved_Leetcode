@@ -6,7 +6,9 @@ public class MaxConsecutiveOnes_3_dynamic_K_Zeros {
 		MaxConsecutiveOnes_3_dynamic_K_Zeros solution = new MaxConsecutiveOnes_3_dynamic_K_Zeros();
 
 		// Example usage:
-		int[] nums = { 1, 0, 0, 1, 1, 0, 1, 0, 1, 1 };
+//		int[] nums = { 1, 0, 0, 1, 1, 0, 1, 0, 1, 1 };
+	
+		int[] nums = { 1,1,1,0,0,0,0,1,1,1,1};
 		int k = 2;
 		int result = solution.longestOnes(nums, k);
 		System.out.println("Length of the longest subarray with at most " + k + " zeros: " + result);
