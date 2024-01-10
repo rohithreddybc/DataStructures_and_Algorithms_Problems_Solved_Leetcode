@@ -5,11 +5,13 @@ import java.util.Map;
 
 public class Equal_Row_and_Column_Pairs {
 
+    // Method to count the number of equal pairs in rows and columns
     public int countEqualPairs(int[][] matrix) {
-        int ans = 0;
+        int count = 0;
         Map<String, Integer> rowOccurrences = new HashMap<>();
         Map<String, Integer> colOccurrences = new HashMap<>();
 
+        // Calculate occurrences in rows ex: 3_2_1_ 
         for (int i = 0; i < matrix.length; i++) {
             StringBuilder rowKey = new StringBuilder();
             for (int j = 0; j < matrix[i].length; j++) {
@@ -18,6 +20,7 @@ public class Equal_Row_and_Column_Pairs {
             rowOccurrences.put(rowKey.toString(), rowOccurrences.getOrDefault(rowKey.toString(), 0) + 1);
         }
 
+        // Calculate occurrences in columns ex: 3_1_2_
         for (int i = 0; i < matrix.length; i++) {
             StringBuilder colKey = new StringBuilder();
             for (int j = 0; j < matrix[i].length; j++) {
@@ -26,13 +29,14 @@ public class Equal_Row_and_Column_Pairs {
             colOccurrences.put(colKey.toString(), colOccurrences.getOrDefault(colKey.toString(), 0) + 1);
         }
 
+        // Check for equal pairs
         for (Map.Entry<String, Integer> entry : rowOccurrences.entrySet()) {
             String key = entry.getKey();
             if (colOccurrences.containsKey(key) && rowOccurrences.containsKey(key)) {
-                ans += colOccurrences.get(key) * rowOccurrences.get(key);
+                count += colOccurrences.get(key) * rowOccurrences.get(key);
             }
         }
-        return ans;
+        return count;
     }
 
     public static void main(String[] args) {
@@ -45,7 +49,8 @@ public class Equal_Row_and_Column_Pairs {
             {2, 7, 7}
         };
         
+        // Call the method and print the result
         int result = solution.countEqualPairs(matrix);
-        System.out.println("Result: " + result);
+        System.out.println("Number of Equal Pairs: " + result);
     }
 }
