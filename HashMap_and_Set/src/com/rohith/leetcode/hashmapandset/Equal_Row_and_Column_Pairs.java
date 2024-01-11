@@ -29,11 +29,11 @@ public class Equal_Row_and_Column_Pairs {
             colOccurrences.put(colKey.toString(), colOccurrences.getOrDefault(colKey.toString(), 0) + 1);
         }
 
-        // Check for equal pairs
+        // Check for equal pairs 
         for (Map.Entry<String, Integer> entry : rowOccurrences.entrySet()) {
             String key = entry.getKey();
             if (colOccurrences.containsKey(key) && rowOccurrences.containsKey(key)) {
-                count += colOccurrences.get(key) * rowOccurrences.get(key);
+                count += colOccurrences.get(key) * rowOccurrences.get(key);  //frequency of same strings in col * row 
             }
         }
         return count;
