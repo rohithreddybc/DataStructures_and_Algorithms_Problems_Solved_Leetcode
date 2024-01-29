@@ -18,13 +18,17 @@ package com.rohith.leetcode.binarytree_DFS;
 public class Path_Sum_3_Number_of_Paths_Where_the_Sum_of_the_Values_Along_the_Path_Equals_TargetSum {
 	
     public int pathSum(TreeNode root, int targetSum) {
-        if (root == null) return 0;
+        if (root == null) {
+        	return 0;
+        }
         
         return (int) findPathSum(root, targetSum, 0) + pathSum(root.left, targetSum) + pathSum(root.right, targetSum);
     }
 
     public long findPathSum(TreeNode root, int targetSum, long currentSum){
-        if (root == null) return 0;
+        if (root == null) {
+        	return 0;
+        }
         currentSum += root.val;
         long count = (targetSum == currentSum) ? 1 : 0;
         count += findPathSum(root.left, targetSum, currentSum);
